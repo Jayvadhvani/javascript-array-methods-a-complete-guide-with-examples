@@ -1,0 +1,228 @@
+<!DOCTYPE html><html lang="en"><head>
+  
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Array Methods: A Complete Guide with Examples</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&amp;family=Outfit:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { font-family: 'Outfit', sans-serif; background: #0f172a; color: #e2e8f0; padding: 40px 20px; }
+
+    .container { max-width: 800px; margin: 0 auto; }
+    h1 { color: #38bdf8; text-align: center; margin-bottom: 30px; }
+
+    .data-display {
+      background: #1e293b; padding: 20px; border-radius: 12px; margin-bottom: 30px;
+      border: 1px solid #334155;
+    }
+    
+    .code-block {
+      font-family: 'Fira Code', monospace;
+      background: #020617; padding: 15px; border-radius: 8px;
+      color: #a5b4fc; font-size: 0.95rem; white-space: pre-wrap;
+    }
+
+    .controls {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px;
+    }
+
+    .btn {
+      background: #3b82f6; color: white; border: none; padding: 15px; border-radius: 8px;
+      font-weight: 600; cursor: pointer; transition: all 0.2s; text-align: left;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .btn:hover { background: #2563eb; transform: translateY(-2px); }
+    .btn code { font-family: 'Fira Code', monospace; font-size: 0.9rem; background: rgba(0,0,0,0.2); padding: 3px 6px; border-radius: 4px; }
+
+    .btn-reset { background: #475569; justify-content: center; grid-column: 1 / -1; }
+    .btn-reset:hover { background: #334155; }
+
+    .explanation {
+      background: rgba(56, 189, 248, 0.1); border-left: 4px solid #38bdf8;
+      padding: 15px; border-radius: 4px; margin-bottom: 20px;
+      font-size: 0.95rem; display: none;
+    }
+
+    .result-container {
+      background: #10b981; padding: 20px; border-radius: 12px; display: none;
+    }
+    .result-container h3 { color: #022c22; margin-bottom: 10px; }
+    .result-code { font-family: 'Fira Code', monospace; background: #064e3b; padding: 15px; border-radius: 8px; color: #a7f3d0; }
+
+  </style>
+
+            <meta name="description" content="A beautiful component imported via Developer Studio AI.">
+            <meta name="robots" content="index, follow">
+            <meta property="og:title" content="JavaScript Array Methods: A Complete Guide with Examples">
+            <meta property="og:description" content="A beautiful component imported via Developer Studio AI.">
+            <meta property="og:image" content="https://codescompiler.com/images/posts/javascript-array-methods-a-complete-guide-with-examples-4.png">
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:title" content="JavaScript Array Methods: A Complete Guide with Examples">
+            <meta name="twitter:description" content="A beautiful component imported via Developer Studio AI.">
+            <meta name="twitter:image" content="https://codescompiler.com/images/posts/javascript-array-methods-a-complete-guide-with-examples-4.png">
+          </head>
+<body>
+
+<!-- ── CODESCOMPILER DEMO HEADER ── -->
+<style>
+  #cc-demo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    height: 48px;
+    background: #1a1b26;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    color: white;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999999;
+  }
+  #cc-demo-header a { text-decoration: none; color: white; }
+  .cc-logo { font-size: 14px; font-weight: 900; }
+  .cc-logo span { color: #04aa6d; }
+  .cc-sep { width: 1px; height: 20px; background: rgba(255,255,255,0.12); margin: 0 12px; }
+  .cc-title { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cc-actions { display: flex; gap: 8px; }
+  .cc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: rgba(255,255,255,0.7);
+  }
+  .cc-btn:hover { background: rgba(255,255,255,0.15); color: white; }
+  .cc-btn svg { width: 14px; height: 14px; }
+  @media (max-width: 600px) {
+    .cc-title { display: none; }
+    .cc-btn span { display: none; }
+  }
+</style>
+<header id="cc-demo-header">
+  <div style="display: flex; align-items: center; overflow: hidden;">
+    <a href="https://codescompiler.com" class="cc-logo" target="_blank" rel="dofollow"><span>Codes</span>Compiler</a>
+    <div class="cc-sep"></div>
+    <h1 class="cc-title" title="JavaScript Array Methods: A Complete Guide with Examples" style="margin: 0; font-size: 13px; font-weight: 600;">📺 JavaScript Array Methods: A Complete Guide with Examples</h1>
+  </div>
+  <div class="cc-actions">
+    <a href=" https://codescompiler.com/blog/javascript-array-methods-a-complete-guide-with-examples-4" class="cc-btn" target="_blank" rel="dofollow" title="Read the full post">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+      <span>Back to Post</span>
+    </a>
+    <a href="index.html" class="cc-btn" target="_blank" download="javascript-array-methods-a-complete-guide-with-examples-4.html" title="Download source file">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      <span>Download</span>
+    </a>
+    <button onclick="document.getElementById('cc-demo-header').style.display='none'" class="cc-btn" title="Hide header for fullscreen view">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l5-5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+      <span>Fullscreen</span>
+    </button>
+  </div>
+</header>
+<!-- ================================== -->
+
+
+  <div class="container">
+    <h1>JavaScript Array Methods</h1>
+
+    <div class="data-display">
+      <h3 style="margin-bottom: 10px;">Original Data Array:</h3>
+      <div class="code-block" id="originalData"></div>
+    </div>
+
+    <div class="explanation" id="explanationText"></div>
+
+    <div class="result-container" id="resultBox">
+      <h3>Result:</h3>
+      <div class="result-code" id="resultData"></div>
+    </div>
+
+    <div class="controls">
+      <button class="btn" onclick="runMap()"><span>Transform data</span> <code>.map()</code></button>
+      <button class="btn" onclick="runFilter()"><span>Find high prices</span> <code>.filter()</code></button>
+      <button class="btn" onclick="runReduce()"><span>Calculate total</span> <code>.reduce()</code></button>
+      <button class="btn" onclick="runFind()"><span>Locate specific</span> <code>.find()</code></button>
+      <button class="btn" onclick="runSome()"><span>Check condition</span> <code>.some()</code></button>
+      <button class="btn btn-reset" onclick="resetDemo()">Reset Demo</button>
+    </div>
+  </div>
+
+  <script>
+    const products = [
+      { id: 1, name: 'Laptop', price: 999, category: 'Electronics' },
+      { id: 2, name: 'Coffee Mug', price: 15, category: 'Home' },
+      { id: 3, name: 'Headphones', price: 150, category: 'Electronics' },
+      { id: 4, name: 'Desk Chair', price: 200, category: 'Furniture' }
+    ];
+
+    // Display original data
+    document.getElementById('originalData').textContent = JSON.stringify(products, null, 2);
+
+    const resultBox = document.getElementById('resultBox');
+    const resultData = document.getElementById('resultData');
+    const explanationText = document.getElementById('explanationText');
+
+    function showResult(result, explanation) {
+      explanationText.style.display = 'block';
+      explanationText.innerHTML = `<strong>What happened?</strong> ${explanation}`;
+      
+      resultBox.style.display = 'block';
+      resultData.textContent = JSON.stringify(result, null, 2);
+      
+      // Scroll to result
+      resultBox.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+
+    function runMap() {
+      // Extract just the names into an array
+      const productNames = products.map(product => product.name);
+      showResult(productNames, "Used <code>map()</code> to iterate over the array and return a new array containing ONLY the names of the products.");
+    }
+
+    function runFilter() {
+      // Find products over $100
+      const expensiveItems = products.filter(product => product.price > 100);
+      showResult(expensiveItems, "Used <code>filter()</code> to create a new array containing only the objects where the price was greater than 100.");
+    }
+
+    function runReduce() {
+      // Calculate total sum of prices
+      const totalCost = products.reduce((accumulator, currentProduct) => {
+        return accumulator + currentProduct.price;
+      }, 0); // 0 is the starting accumulator
+      showResult({ totalValue: `$${totalCost}` }, "Used <code>reduce()</code> to iterate through every item, adding their prices to a running total. It returned a single number: the sum.");
+    }
+
+    function runFind() {
+      // Find the first item in 'Home' category
+      const homeItem = products.find(product => product.category === 'Home');
+      showResult(homeItem, "Used <code>find()</code> to locate the <em>very first</em> object in the array that matched the category 'Home'. Unlike filter, find returns a single object, not an array.");
+    }
+
+    function runSome() {
+      // Check if any item is super expensive
+      const hasExpensiveItem = products.some(product => product.price >= 1000);
+      showResult({ hasItemOver$1000: hasExpensiveItem }, "Used <code>some()</code> to check if <em>at least one</em> item in the array meets the condition (price >= 1000). It returns a simple boolean true/false.");
+    }
+
+    function resetDemo() {
+      resultBox.style.display = 'none';
+      explanationText.style.display = 'none';
+    }
+  </script>
+
+
+</body></html>
